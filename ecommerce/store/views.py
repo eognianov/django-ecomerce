@@ -30,7 +30,6 @@ def checkout(request):
     context = {'items': items, 'order': order}
     return render(request, 'store/checkout.html', context)
 
-@require_http_methods(["GET", "POST"])
 def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
