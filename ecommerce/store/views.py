@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 from .models import *
 
 def store(request):
@@ -27,4 +29,8 @@ def checkout(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
     context = {'items': items, 'order': order}
     return render(request, 'store/checkout.html', context)
+
+@require_http_methods(["GET", "POST"])
+def updateItem(request):
+    return JsonResponse('Item was added', safe=False)
 
