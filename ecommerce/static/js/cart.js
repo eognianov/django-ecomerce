@@ -31,6 +31,7 @@ function addCookieItem(productId, action) {
     }
 
     document.cookie = `cart=` + JSON.stringify(cart) + ";domain=;path=/";
+    location.reload();
 }
 
 function updateUserOrder(productId, action) {
